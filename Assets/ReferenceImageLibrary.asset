@@ -41,7 +41,57 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 185795594542328099
       m_GuidHigh: 5642681530519912586
-    m_Size: {x: 0.15, y: 0.15}
+    m_Size: {x: 0.3, y: 0.3}
     m_SpecifySize: 1
     m_Name: K
     m_Texture: {fileID: 2800000, guid: dd872923141b02948a004caff4d44e4e, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 4903409688561932869
+      m_GuidHigh: 11542747641417327287
+    m_SerializedTextureGuid:
+      m_GuidLow: 3144836155586638861
+      m_GuidHigh: 3601513733873716618
+    m_Size: {x: 0.3, y: 0.3}
+    m_SpecifySize: 1
+    m_Name: S
+    m_Texture: {fileID: 2800000, guid: 4a8bf40db3d22ba48acd3bc9a825fb31, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5197712083445068221
+      m_GuidHigh: 763997250763661470
+    m_SerializedTextureGuid:
+      m_GuidLow: 383958145005595179
+      m_GuidHigh: 16142901612922697595
+    m_Size: {x: 0.3, y: 0.3}
+    m_SpecifySize: 1
+    m_Name: P
+    m_Texture: {fileID: 2800000, guid: 09ad2a2b17e605547b7756fa7c1b07e0, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5512796940535157402
+      m_GuidHigh: 15143240931955210167
+    m_SerializedTextureGuid:
+      m_GuidLow: 9850500268807027931
+      m_GuidHigh: 5744946452712463113
+    m_Size: {x: 0.3, y: 0.3}
+    m_SpecifySize: 1
+    m_Name: N
+    m_Texture: {fileID: 2800000, guid: e621fcdb01cd88b4091b91575c26ba4f, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 4653168788148229819
+      m_GuidHigh: 8717004348584394637
+    m_SerializedTextureGuid:
+      m_GuidLow: 18101339533557992022
+      m_GuidHigh: 12602010381341334890
+    m_Size: {x: 0.3, y: 0.3}
+    m_SpecifySize: 1
+    m_Name: G
+    m_Texture: {fileID: 2800000, guid: 98758a56e066fb346a9da26bac55e3ae, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 4852238201923313411
+      m_GuidHigh: 2723904054954955934
+    m_SerializedTextureGuid:
+      m_GuidLow: 11143150146450778401
+      m_GuidHigh: 16584847374084707337
+    m_Size: {x: 0.3, y: 0.3}
+    m_SpecifySize: 1
+    m_Name: M
+    m_Texture: {fileID: 2800000, guid: ee0a69216c049aa409946302d13629e6, type: 3}

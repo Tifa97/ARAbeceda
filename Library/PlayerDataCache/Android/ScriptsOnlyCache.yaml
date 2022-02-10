@@ -1,6 +1,8 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - IguanaCharacter
+    - IguanaUserController
     - ImageTracking
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -23,6 +25,12 @@ ScriptsOnlyBuild:
     Unity.XR.Management.dll:
     - UnityEngine.XR.Management.XRGeneralSettings
     - UnityEngine.XR.Management.XRManagerSettings
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -67,37 +75,47 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
+    - Class: 111
+      Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1736}
+      Script: {instanceID: 1618}
     - Class: 114
-      Script: {instanceID: 2266}
+      Script: {instanceID: 2146}
     - Class: 114
-      Script: {instanceID: 2624}
+      Script: {instanceID: 2504}
     - Class: 114
-      Script: {instanceID: 2656}
+      Script: {instanceID: 2536}
     - Class: 114
-      Script: {instanceID: 2748}
+      Script: {instanceID: 2628}
     - Class: 114
-      Script: {instanceID: 2970}
+      Script: {instanceID: 2850}
     - Class: 114
-      Script: {instanceID: 3184}
+      Script: {instanceID: 2884}
     - Class: 114
-      Script: {instanceID: 3484}
+      Script: {instanceID: 2958}
     - Class: 114
-      Script: {instanceID: 3488}
+      Script: {instanceID: 3068}
     - Class: 114
-      Script: {instanceID: 3982}
+      Script: {instanceID: 3370}
     - Class: 114
-      Script: {instanceID: 4278}
+      Script: {instanceID: 3374}
     - Class: 114
-      Script: {instanceID: 4426}
+      Script: {instanceID: 3870}
     - Class: 114
-      Script: {instanceID: 4662}
+      Script: {instanceID: 4166}
     - Class: 114
-      Script: {instanceID: 5042}
+      Script: {instanceID: 4314}
+    - Class: 114
+      Script: {instanceID: 4550}
+    - Class: 114
+      Script: {instanceID: 4930}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
+      Script: {instanceID: 0}
+    - Class: 134
+      Script: {instanceID: 0}
+    - Class: 136
       Script: {instanceID: 0}
     - Class: 137
       Script: {instanceID: 0}
@@ -202,12 +220,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Shadow
-  - hash:
-      serializedVersion: 2
-      Hash: c60023b8b5011d16686aa7076ebfca47
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Alternative
   - hash:
       serializedVersion: 2
       Hash: 300fd99066f8c288e85f5e81ce65fe34
@@ -372,6 +384,12 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: IguanaCharacter
+  - hash:
+      serializedVersion: 2
       Hash: f40fedccd4adbc76605bea6d67537e4b
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -394,6 +412,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: TestResultRendererCallback
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: IguanaUserController
   - hash:
       serializedVersion: 2
       Hash: 1268406d3f2e4b2c2b670b560b6db769
@@ -588,6 +612,12 @@ ScriptsOnlyBuild:
     className: AudioPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: 1995344bedaa54ce3ad9e83a85da84e2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: IguanaCameraScript
+  - hash:
+      serializedVersion: 2
       Hash: 7f5c55cb7b3151ce240452eb85500d32
     assemblyName: Unity.XR.ARFoundation.dll
     namespaceName: UnityEngine.XR.ARFoundation
@@ -708,7 +738,7 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: dd663690846ed857281be51e9e466a19
+      Hash: eda1e2e20d718d4689282150cc862691
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ImageTracking

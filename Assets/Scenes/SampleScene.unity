@@ -339,7 +339,12 @@ MonoBehaviour:
   arObjectsToPlace:
   - {fileID: 1588090451174212, guid: 7c771c82e72657a4b86bfc3ffb86730c, type: 3}
   - {fileID: 4636454173287814682, guid: 357d7c9c6c442b54e8dc08a2345418ed, type: 3}
-  - {fileID: 4286771171589810353, guid: d52b58f7bc4274f4dab8d2745361ab22, type: 3}
+  - {fileID: 4648916343513126811, guid: cd4b7b732a5e1284782808744a131b39, type: 3}
+  - {fileID: 4081351105281676519, guid: 7e1415c812ca0d14ca59e2b5d6a5d1a8, type: 3}
+  - {fileID: 6988687604788181380, guid: 78226988b1ddf2b4a983fca5cbb54089, type: 3}
+  - {fileID: 5410409005442312201, guid: 41b551ef16945aa46a56240b493087f4, type: 3}
+  - {fileID: 2712409772125959595, guid: 4e0c0822a4bfa33438cb7b8b1d2df516, type: 3}
+  - {fileID: 6057794997540056424, guid: 2ec44ed204237fe41a74d63586d85f5e, type: 3}
   scaleFactor: {x: 0.1, y: 0.1, z: 0.1}
 --- !u!114 &285486626
 MonoBehaviour:

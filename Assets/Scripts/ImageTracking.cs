@@ -10,32 +10,24 @@ using UnityEngine.XR.ARSubsystems;
 [RequireComponent(typeof(ARTrackedImageManager))]
 public class ImageTracking : MonoBehaviour
 {
-    //[SerializeField]
-    //private GameObject welcomePanel;
-
-    //[SerializeField]
-    //private Button dismissButton;
-
-    [SerializeField]
-    private Text imageTrackedText;
-
     [SerializeField]
     private GameObject[] arObjectsToPlace;
 
-    [SerializeField]
-    private Vector3 scaleFactor = new Vector3(0.1f, 0.1f, 0.1f);
-
     private ARTrackedImageManager m_TrackedImageManager;
 
-    private ARAnchorManager m_anchorManager;
-
     private Dictionary<string, GameObject> arObjects = new Dictionary<string, GameObject>();
+
+    float initialDistance;
+    Vector3 initialScale;
+
+    private TrackingState currentState;
+
+    private GameObject spawnedObject;
 
     void Awake()
     {
         //dismissButton.onClick.AddListener(Dismiss);
         m_TrackedImageManager = GetComponent<ARTrackedImageManager>();
-        m_anchorManager = GetComponent<ARAnchorManager>();
 
         // setup all game objects in dictionary
         foreach (GameObject arObject in arObjectsToPlace)
@@ -44,6 +36,39 @@ public class ImageTracking : MonoBehaviour
             newARObject.name = arObject.name;
             arObjects.Add(arObject.name, newARObject);
             arObject.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.touchCount == 2)
+        {
+            var touchZero = Input.GetTouch(0);
+            var touchOne = Input.GetTouch(1);
+
+            if (touchZero.phase == TouchPhase.Ended || touchZero.phase == TouchPhase.Canceled ||
+                touchOne.phase == TouchPhase.Ended || touchOne.phase == TouchPhase.Canceled)
+            {
+                return;
+            }
+
+            if (touchZero.phase == TouchPhase.Began || touchOne.phase == TouchPhase.Began)
+            {
+                initialDistance = Vector2.Distance(touchZero.position, touchOne.position);
+                initialScale = spawnedObject.transform.localScale;
+            }
+            else
+            {
+                var currentDistance = Vector2.Distance(touchZero.position, touchOne.position);
+
+                if (Mathf.Approximately(initialDistance, 0))
+                {
+                    return;
+                }
+
+                var factor = currentDistance / initialDistance;
+                spawnedObject.transform.localScale = initialScale * factor;
+            }
         }
     }
 
@@ -72,21 +97,20 @@ public class ImageTracking : MonoBehaviour
 
         foreach (ARTrackedImage trackedImage in eventArgs.removed)
         {
-            arObjects[trackedImage.name].SetActive(false);
+            arObjects[trackedImage.referenceImage.name].SetActive(false);
         }
     }
 
     private void UpdateARImage(ARTrackedImage trackedImage)
     {
-        if (trackedImage.trackingState == TrackingState.Tracking)
+        if (trackedImage.trackingState != currentState)
         {
-            // Display the name of the tracked image in the canvas
-            imageTrackedText.text = trackedImage.referenceImage.name;
-
-            // Assign and Place Game Object
-            AssignGameObject(trackedImage);
-
-            Debug.Log($"trackedImage.referenceImage.name: {trackedImage.referenceImage.name}");
+            currentState = trackedImage.trackingState;
+            if (trackedImage.trackingState == TrackingState.Tracking)
+            {
+                // Assign and Place Game Object
+                AssignGameObject(trackedImage);
+            }
         }
     }
 
@@ -94,26 +118,28 @@ public class ImageTracking : MonoBehaviour
     {
         string name = trackedImage.referenceImage.name;
         Vector3 position = trackedImage.transform.position;
+        Quaternion rotation = trackedImage.transform.rotation;
 
         if (arObjectsToPlace != null)
         {
-            GameObject goARObject = arObjects[name];
-            goARObject.transform.position = position;
-            goARObject.transform.localScale = scaleFactor;
-            goARObject.SetActive(true);
-            
+            spawnedObject = arObjects[name];
+            if (!spawnedObject.activeInHierarchy)
+            {
+                spawnedObject.transform.position = position;
+                if (spawnedObject.gameObject.name != "K")
+                {
+                    spawnedObject.transform.rotation = Quaternion.Euler(rotation.x, rotation.y - 180, rotation.z);
+                }
+                spawnedObject.SetActive(true);
+            }
+
             foreach (GameObject go in arObjects.Values)
             {
-                Debug.Log($"Go in arObjects.Values: {go.name}");
                 if (go.name != name || trackedImage.trackingState == TrackingState.Limited || trackedImage.trackingState == TrackingState.None)
                 {
                     go.SetActive(false);
                 }
             }
-        }
-        else
-        {
-            _ShowAndroidToastMessage("VIDI ÐUKA");
         }
     }
 

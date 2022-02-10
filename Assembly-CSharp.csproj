@@ -58,7 +58,10 @@
     <Compile Include="Assets\Models\Rabbits\Demo\Scripts\AnimatorParamatersChange.cs" />
     <Compile Include="Assets\Starter Package\LightEstimation.cs" />
     <Compile Include="Assets\Starter Package\DrivingSurfaceManager.cs" />
+    <Compile Include="Assets\Models\JSLizards\Iguana\Scripts\IguanaCharacter.cs" />
+    <Compile Include="Assets\Models\JSLizards\Iguana\Scripts\IguanaUserController.cs" />
     <Compile Include="Assets\Starter Package\CarManager.cs" />
+    <Compile Include="Assets\Models\JSLizards\Iguana\Scripts\IguanaCameraScript.cs" />
     <Compile Include="Assets\Starter Package\CarBehaviour.cs" />
     <Compile Include="Assets\Scripts\ImageTracking.cs" />
     <Compile Include="Assets\Starter Package\PackageBehaviour.cs" />
@@ -66,6 +69,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\BlackBull\ReadMe.txt" />
+    <None Include="Assets\Models\Ladymito\Free_cat\Animations\low_poly_cat_animation_list.txt" />
+    <None Include="Assets\Models\JSLizards\Iguana\Readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
