@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.XR;
 using UnityEngine.XR.ARFoundation;
@@ -10,6 +11,9 @@ using UnityEngine.XR.ARSubsystems;
 [RequireComponent(typeof(ARTrackedImageManager))]
 public class ImageTracking : MonoBehaviour
 {
+    [SerializeField]
+    private Button btnFinish;
+
     [SerializeField]
     private GameObject[] arObjectsToPlace;
 
@@ -101,7 +105,7 @@ public class ImageTracking : MonoBehaviour
         }
     }
 
-    private void UpdateARImage(ARTrackedImage trackedImage)
+    public void UpdateARImage(ARTrackedImage trackedImage)
     {
         if (trackedImage.trackingState != currentState)
         {
@@ -110,6 +114,11 @@ public class ImageTracking : MonoBehaviour
             {
                 // Assign and Place Game Object
                 AssignGameObject(trackedImage);
+
+                if (btnFinish != null && !btnFinish.gameObject.activeInHierarchy)
+                {
+                    btnFinish.gameObject.SetActive(true);
+                }
             }
         }
     }
@@ -143,19 +152,8 @@ public class ImageTracking : MonoBehaviour
         }
     }
 
-    private void _ShowAndroidToastMessage(string message)
+    public void BackToMenu()
     {
-        AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-        AndroidJavaObject unityActivity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
-
-        if (unityActivity != null)
-        {
-            AndroidJavaClass toastClass = new AndroidJavaClass("android.widget.Toast");
-            unityActivity.Call("runOnUiThread", new AndroidJavaRunnable(() =>
-            {
-                AndroidJavaObject toastObject = toastClass.CallStatic<AndroidJavaObject>("makeText", unityActivity, message, 0);
-                toastObject.Call("show");
-            }));
-        }
+        SceneManager.LoadScene("MainMenu");
     }
 }
